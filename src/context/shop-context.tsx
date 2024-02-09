@@ -7,10 +7,14 @@ export const ShopContext = createContext<{
   cartItem: { [productId: number]: number };
   addToCart: (itemId: number) => void;
   removeFromCart: (itemId: number) => void;
+  updateCartItemAmount: (newAmount: number, itemId: number) => void; 
+  getTotalAmount: ()=> number
 }>({
   cartItem: {},
   addToCart: (itemId: number) => {},
-  removeFromCart: (itemId: number) => {}
+  removeFromCart: (itemId: number) => {},
+  updateCartItemAmount: (newAmount: number, itemId: number) => {}, 
+  getTotalAmount: ()=> 0
 });
 
 interface Props {
@@ -44,9 +48,24 @@ export function ShopContextProvider(props: Props){
         setCartItem((prev)=> ({...prev, [itemId]: newAmount}))
     }
 
-    const contextData = {updateCartItemAmount,cartItem, addToCart, removeFromCart}
 
+        const getTotalAmount = ()=>{
+            let total = 0;
+            for(const item in cartItem){
+                if(cartItem[item] > 0){
+                    let itemInfo = products.find((product)=> product.id === Number(item))
+                    
+                    if(itemInfo)
+                    total+= cartItem[item] * itemInfo?.price
+                }
+            }
 
+            console.log(total)
+            return total
+        }
+    const contextData = {updateCartItemAmount,cartItem, addToCart, removeFromCart, getTotalAmount}
+
+    
 
     return <ShopContext.Provider value={contextData}>
         {props.children}
