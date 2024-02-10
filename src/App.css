@@ -1,38 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  font-family: "Poppins";
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.navbar{
   display: flex;
-  flex-direction: column;
+  border: 1px solid black;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  color: white;
+  background-color: black;
+  width: 100%;
+  padding: 1em 0;
+}
+.navbar a{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.shop{
+
+  margin: 2em auto 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.products{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  
+}
+.product{
+  border: 1px solid lightgrey;
+  width: 23%;
+  margin-bottom: 1em;
+  min-width: 300px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+.product-img{
+  width: 200px;
+}
+
+.addToCartBttn{
+  display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color, border-color, color, box-shadow, filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 130px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 16px 14px 18px;
+    color: #fff;
+    background-color: #15883e;
+    height: 48px;
+  
+    
+}
+
+.addToCartBttn:hover {
+  background-color: #1db954;
+}
+
+.total button{
+  display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 3px;
+    color: #fff;
+    background: #000;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    padding: 12px 20px;
+    text-align: center;
+    transition-duration: .15s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  
+    margin: 0 1em;
+}
+.total button:hover {
+  color: #000;
+  background: rgb(255, 218, 87);
+}
+
+@media screen and (max-width: 675px) {
+  .total button{
+    font-size: 1rem;
+    padding: 8px 16px;
+    margin: 0 .5em;
   }
-  to {
-    transform: rotate(360deg);
+
+  .cart-item img{
+    width: 10px;
   }
 }

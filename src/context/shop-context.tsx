@@ -54,7 +54,6 @@ export function ShopContextProvider(props: Props){
             for(const item in cartItem){
                 if(cartItem[item] > 0){
                     let itemInfo = products.find((product)=> product.id === Number(item))
-                    
                     if(itemInfo)
                     total+= cartItem[item] * itemInfo?.price
                 }

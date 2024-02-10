@@ -7,7 +7,7 @@ import { ShopContext } from "../../context/shop-context"
 
 export function Product ({data}: { data: Data }){
 
-    const {cartItem, addToCart, removeFromCart} = useContext(ShopContext)
+    const {cartItem, addToCart} = useContext(ShopContext)
 
 
 

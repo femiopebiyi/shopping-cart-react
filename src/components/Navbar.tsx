@@ -10,7 +10,7 @@ export function Navbar(){
     return <div className="navbar">
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/cart'>
-            <ShoppingCart/>
+            <ShoppingCart size={32} color="white"/>
         </NavLink>
     </div>
 }
