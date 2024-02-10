@@ -24,6 +24,6 @@ export function Product ({data}: { data: Data }){
             <p>${price}</p>
         </div>
 
-        <button className="addToCartBttn" onClick={()=>{addToCart(id)}}> Add To Cart {cartItemAmount > 0 && `(${cartItemAmount})`}</button>
+        <button className="addToCartBttn" onClick={()=>{addToCart(id)}}>Add To Cart {cartItemAmount > 0 && `(${cartItemAmount})`}</button>
     </div>
 }

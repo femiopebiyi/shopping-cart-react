@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react"
+import { ReactNode, createContext, useEffect, useState } from "react"
 import { products } from "../products"
 import { Data } from "../pages/shop/Shop"
 
@@ -36,17 +36,45 @@ export function ShopContextProvider(props: Props){
 
     const [cartItem, setCartItem] = useState(getDefaultCart())
 
-    const addToCart = (itemId: number)=>{
-        setCartItem((prev)=> ({...prev, [itemId]: prev[itemId]+ 1}))
-    }
 
-    const removeFromCart = (itemId: number)=>{
-        setCartItem((prev)=> ({...prev, [itemId]: prev[itemId] - 1}))
-    }
+    
+    useEffect(() => {
+        // Retrieve cart items from localStorage when the component mounts
+        const savedCart = localStorage.getItem('cartItem');
+        if (savedCart) {
+            setCartItem(JSON.parse(savedCart));
+        }
+    }, []);
 
-    const updateCartItemAmount = (newAmount: number, itemId: number)=>{
-        setCartItem((prev)=> ({...prev, [itemId]: newAmount}))
-    }
+ 
+    const addToCart = (itemId: number) => {
+        setCartItem((prev) => {
+            const updatedCart = { ...prev, [itemId]: prev[itemId] + 1 };
+            // Save updated cart to localStorage
+            localStorage.setItem('cartItem', JSON.stringify(updatedCart));
+            return updatedCart;
+        });
+    };
+
+
+   const removeFromCart = (itemId: number) => {
+        setCartItem((prev) => {
+            const updatedCart = { ...prev, [itemId]: Math.max(0, prev[itemId] - 1) };
+            // Save updated cart to localStorage
+            localStorage.setItem('cartItem', JSON.stringify(updatedCart));
+            return updatedCart;
+        });
+    };
+
+     const updateCartItemAmount = (newAmount: number, itemId: number) => {
+        setCartItem((prev) => {
+            const updatedCart = { ...prev, [itemId]: newAmount };
+            // Save updated cart to localStorage
+            localStorage.setItem('cartItem', JSON.stringify(updatedCart));
+            return updatedCart;
+        });
+    };
+
 
 
         const getTotalAmount = ()=>{
