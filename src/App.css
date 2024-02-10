@@ -11,6 +11,7 @@
 
 body{
   font-family: "Poppins";
+  box-sizing: border-box;
 }
 
 
@@ -53,6 +54,28 @@ body{
   align-items: center;
   justify-content: space-between;
   gap: 5px;
+  position: relative;
+}
+
+.product svg {
+  position: absolute;
+  top: 1.5%;
+  right: 1.5%;
+  font-weight: 700;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.info {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  transition: all 4s ease-in
 }
 .product-img{
   width: 200px;
@@ -113,6 +136,8 @@ body{
 .countHandler button{
   padding: 0 .5em;
 }
+
+
 
 @media screen and (max-width: 675px) {
   .total button{

@@ -3,18 +3,23 @@ import { products } from "../products"
 import { Data } from "../pages/shop/Shop"
 
 
+
 export const ShopContext = createContext<{
   cartItem: { [productId: number]: number };
   addToCart: (itemId: number) => void;
   removeFromCart: (itemId: number) => void;
-  updateCartItemAmount: (newAmount: number, itemId: number) => void; 
-  getTotalAmount: ()=> number
+  updateCartItemAmount: (newAmount: number, itemId: number) => void;
+  getTotalAmount: () => number;
+  displayInfo: (productId: number) => void; // Adjust displayInfo function
+  showInfo: { [productId: number]: boolean }; // Add showInfo state
 }>({
   cartItem: {},
   addToCart: (itemId: number) => {},
   removeFromCart: (itemId: number) => {},
-  updateCartItemAmount: (newAmount: number, itemId: number) => {}, 
-  getTotalAmount: ()=> 0
+  updateCartItemAmount: (newAmount: number, itemId: number) => {},
+  getTotalAmount: () => 0,
+  displayInfo: (productId: number) => {}, // Adjust the function signature
+  showInfo: {}, // Initialize showInfo state as an empty object
 });
 
 interface Props {
@@ -36,7 +41,7 @@ export function ShopContextProvider(props: Props){
 
     const [cartItem, setCartItem] = useState(getDefaultCart())
 
-
+const [showInfo, setShowInfo] = useState<{ [key: number]: boolean }>({});
     
     useEffect(() => {
         // Retrieve cart items from localStorage when the component mounts
@@ -90,10 +95,16 @@ export function ShopContextProvider(props: Props){
             console.log(total)
             return total
         }
-    const contextData = {updateCartItemAmount,cartItem, addToCart, removeFromCart, getTotalAmount}
+    const contextData = {updateCartItemAmount,cartItem, addToCart, removeFromCart, getTotalAmount, displayInfo, showInfo}
 
     
 
+  function displayInfo(productId: number) {
+    setShowInfo(prev => ({
+        ...prev,
+        [productId]: !prev[productId]
+    }));
+}
     return <ShopContext.Provider value={contextData}>
         {props.children}
     </ShopContext.Provider>

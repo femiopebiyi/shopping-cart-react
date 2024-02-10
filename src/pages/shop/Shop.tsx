@@ -8,7 +8,8 @@ import "./shop.css"
         id: number;
         productName: string;
         price: number;
-        productImage: string
+        productImage: string;
+        specs: string
     }
 
 export function Shop(){
