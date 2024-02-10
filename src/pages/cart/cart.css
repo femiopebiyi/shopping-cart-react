@@ -11,8 +11,8 @@
     align-items: center;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     border-radius: 25px;
-    margin: 30px;
-    padding: 0 2em;
+    margin: 1em;
+    padding: 0 1em;
 }
 
 .cart-item img {
@@ -48,5 +48,10 @@
 
     .cart-item img {
         width: 150px;
+    }
+
+    .cart-item .description{
+        font-size: 1rem;
+        
     }
 }
