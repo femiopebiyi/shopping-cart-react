@@ -22,7 +22,7 @@ body{
   gap: 10px;
   color: white;
   background-color: black;
-  width: 100%;
+  width: 99%;
   padding: 1em 0;
 }
 .navbar a{
@@ -35,11 +35,12 @@ body{
 }
 
 .products{
-  width: 100%;
+  width: 98%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   
+  margin: 0 auto;
 }
 .product{
   border: 1px solid lightgrey;
@@ -123,4 +124,9 @@ body{
   .cart-item img{
     width: 10px;
   }
+
+    .product-img {
+      width: 180px;
+      ;
+    }
 }
