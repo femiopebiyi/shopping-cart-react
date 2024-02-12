@@ -75,7 +75,7 @@ body{
   justify-content: center;
   align-items: center;
   background-color: lightgray;
-  transition: all 4s ease-in
+  transition: all .3s ease-in
 }
 .product-img{
   width: 200px;

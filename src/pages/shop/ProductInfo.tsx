@@ -10,12 +10,10 @@ interface ProductInfoProps {
 
 export function ProductInfo ({ info, showInfo }: ProductInfoProps){
 
-    
-
 
    
     return <div className="info" style={{
-        display: showInfo ? 'block' : 'none'
+        opacity: showInfo ? 1 : 0
     }}>
         <p className="info-text">{info}</p>
     </div>
