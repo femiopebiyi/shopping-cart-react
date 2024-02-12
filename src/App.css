@@ -81,6 +81,10 @@ body{
   width: 200px;
 }
 
+.navbar a.active{
+  color: red;
+}
+
 .addToCartBttn{
   display: inline-block;
     outline: none;
