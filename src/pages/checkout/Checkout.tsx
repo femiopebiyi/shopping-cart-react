@@ -6,8 +6,8 @@ import {ArrowLeft} from"phosphor-react"
 
 const Checkout = () => {  
   const {cartItem, getTotalAmount} = useContext(ShopContext);
-  const [deliverFee, setDeliveryFee] = useState<number | null>(null)
-  const [customFee, setCustomFee] = useState<number | null>(null)
+  const [deliverFee, setDeliveryFee] = useState<number>(0)
+  const [customFee, setCustomFee] = useState<number>(0)
   const total = getTotalAmount()
 
   const lengthItem = products.filter((product)=>{
@@ -33,10 +33,10 @@ const Checkout = () => {
 
   useEffect(()=>{
     Delivery()
-  },[])
+  },[total])
   useEffect(()=>{
     Custom()
-  },[])
+  },[total])
 
 
   const navigate= useNavigate()
