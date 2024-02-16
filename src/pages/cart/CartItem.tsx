@@ -26,6 +26,9 @@ export const CartItem = ({data}: {data: Data})=>{
                     updateCartItemAmount(Number(e.target.value), id)
                 }}/>
                 <button onClick={()=>{addToCart(id)}}> + </button>
+                <button className="remove"onClick={()=>{
+                    updateCartItemAmount(0, id)
+                }}>Remove</button>
             </div>
         </div>
     </div>

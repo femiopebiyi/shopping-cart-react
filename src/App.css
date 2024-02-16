@@ -142,7 +142,6 @@ body{
 }
 
 .checkout{
-  
   width: 60%;
 }
 
@@ -159,6 +158,16 @@ body{
   margin-bottom: 2em;
 }
 
+.remove{
+  display: block;
+  margin: 0 auto;
+  margin-top: .6em;
+  background-color: black;
+  color: white;
+  font-family: "Poppins";
+  outline: none;
+  border-radius: 5px;
+}
 
 
 
