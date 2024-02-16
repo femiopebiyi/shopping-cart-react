@@ -19,7 +19,7 @@ const Checkout = () => {
     if (lengthItem.length>= 5){
       setDeliveryFee(Number(((.5/100)* total).toFixed(2)))
     } else{
-      setDeliveryFee(0)
+      setDeliveryFee(Number(((.8/100)* total).toFixed(2)))
     }
   }
 
@@ -63,7 +63,7 @@ const Checkout = () => {
           </div>
           <div className="total-fees">
             <p>Total</p>
-            <h5>${customFee && deliverFee ? total+customFee+deliverFee : total }</h5>
+            <h5>${customFee && deliverFee ? (total+customFee+deliverFee).toFixed(2) : total }</h5>
           </div>
         </div>
 
