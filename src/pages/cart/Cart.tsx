@@ -40,7 +40,7 @@ let totalAmount = getTotalAmount()
         <div className="total">
             <p className="subtotal">Subtotal: ${totalAmount}</p>
             <button onClick={()=> navigate('/')}>Continue Shopping</button>
-            <button onClick={()=> navigate("checkout")}>Checkout</button>
+            {lengthItem.length > 0 && <button onClick={()=> navigate("checkout")}>Checkout</button>}
         </div>
     </div>
 }
