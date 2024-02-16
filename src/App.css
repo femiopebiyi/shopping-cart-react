@@ -148,6 +148,9 @@ body{
 
 .order-total{
   margin-top: 2em;
+  width: 98%;
+  margin: 2em auto 0 auto;
+  border: 1px solid red;
 }
 
 .total-fees{
@@ -156,6 +159,7 @@ body{
   align-items: center;
   margin-bottom: 2em;
 }
+
 
 
 
