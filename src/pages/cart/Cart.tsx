@@ -4,6 +4,7 @@ import { ShopContext } from "../../context/shop-context";
 import { CartItem } from "./CartItem";
 import './cart.css'
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "phosphor-react";
 
 
 
@@ -27,6 +28,10 @@ useEffect(()=>{
 
 let totalAmount = getTotalAmount()
     return <div className="cart">
+        <ArrowLeft size={32} onClick={()=>{
+
+        navigate("..")
+      }}/>
         <div><h1>Your Cart Items({length})</h1></div>
 
         <div className="cartItems">

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../../context/shop-context';
 import { products } from '../../products';
 import { useNavigate } from 'react-router-dom';
+import {ArrowLeft} from"phosphor-react"
 
 const Checkout = () => {  
   const {cartItem, getTotalAmount} = useContext(ShopContext);
@@ -42,6 +43,9 @@ const Checkout = () => {
 
   return (
     <div className='checkout'>
+      <ArrowLeft size={32} onClick={()=>{
+        navigate("..")
+      }}/>
         <h2>Order Summary</h2>
 
         <div className="order-total">

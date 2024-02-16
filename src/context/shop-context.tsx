@@ -4,6 +4,7 @@ import { Data } from "../pages/shop/Shop"
 
 
 
+
 export const ShopContext = createContext<{
   cartItem: { [productId: number]: number };
   addToCart: (itemId: number) => void;

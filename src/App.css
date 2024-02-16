@@ -84,6 +84,16 @@ body{
 .navbar a.active{
   color: red;
 }
+.cart{
+  position: relative;
+}
+.cart svg{
+  position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+
 
 .addToCartBttn{
   display: inline-block;
@@ -143,6 +153,13 @@ body{
 
 .checkout{
   width: 60%;
+  position: relative;
+}
+
+.checkout svg{
+  position: absolute;
+  top: 2%;
+  left: 2%;
 }
 
 .order-total{
@@ -198,4 +215,8 @@ body{
       margin: 0 auto;
       margin-top: 2em;
     }
+
+        .cart h1 {
+          font-size: 1rem;
+        }
 }
