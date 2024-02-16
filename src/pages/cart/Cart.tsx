@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { products } from "../../products";
 import { ShopContext } from "../../context/shop-context";
 import { CartItem } from "./CartItem";
@@ -11,10 +11,23 @@ export function Cart(){
 
 const {cartItem, getTotalAmount} = useContext(ShopContext);
 const navigate = useNavigate()
+const [length, setLength] = useState<number | null>(null)
+
+const lengthItem = products.filter((product)=>{
+    if (cartItem[product.id] > 0){
+        return product
+    }
+})
+
+useEffect(()=>{
+    setLength(lengthItem.length)
+},[lengthItem.length])
+
+
 
 let totalAmount = getTotalAmount()
     return <div className="cart">
-        <div><h1>Your Cart Items</h1></div>
+        <div><h1>Your Cart Items({length})</h1></div>
 
         <div className="cartItems">
             {products.map((product, index)=> {
@@ -27,7 +40,7 @@ let totalAmount = getTotalAmount()
         <div className="total">
             <p className="subtotal">Subtotal: ${totalAmount}</p>
             <button onClick={()=> navigate('/')}>Continue Shopping</button>
-            <button>Checkout</button>
+            <button onClick={()=> navigate("checkout")}>Checkout</button>
         </div>
     </div>
 }
