@@ -23,7 +23,7 @@ body{
   gap: 10px;
   color: white;
   background-color: black;
-  width: 99%;
+  width: 100%;
   padding: 1em 0;
 }
 .navbar a{
@@ -141,6 +141,22 @@ body{
   padding: 0 .5em;
 }
 
+.checkout{
+  
+  width: 60%;
+}
+
+.order-total{
+  margin-top: 2em;
+}
+
+.total-fees{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
 
 
 @media screen and (max-width: 675px) {
@@ -156,6 +172,18 @@ body{
 
     .product-img {
       width: 180px;
-      ;
+      
+    }
+
+    .checkout {
+      
+      width: 100%;
+    }
+
+        #checkout{
+      width: 99%;
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 2em;
     }
 }
